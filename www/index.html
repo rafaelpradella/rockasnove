@@ -8,13 +8,6 @@
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
         <meta http-equiv="cleartype" content="on">
-
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
-        <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
-        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
         <link rel="stylesheet" href="css/app.css">
     </head>
     <body data-ng-controller="appController">
@@ -43,7 +36,7 @@
         <!-- Modal and content boxes -->
 
  
-                        <aside class="agenda">
+            <aside class="agenda">
                 <ul>
                     <li class="tema-atual tema" data-ng-repeat="tema in temas | filter:{status:'atual'}"> {{tema.sub}} </li>
                     <li class="tema" data-ng-repeat="tema in temas | filter:{status:'proximo'}"> {{tema.sub}} <a class="reminder">Avise-me</a></li>
@@ -55,16 +48,6 @@
                   <source class="fullscreen-video-src" src="" type="video/mp4">
                 </video>
             </div>
-
-            <div class="email-input">
-                <h1>Seja avisado</h1>
-                <p> Cadastre seu email para ser avisado duas horas antes do programa começar </p>
-                <form action="demo_form.asp">
-                    <input type="text" name="fname"><br>
-                </form>
-                <span class='email-input-send'> Avisar </span>
-            </div>  
-        </div>
 
         <!-- INLINED VIEWS -->
 
