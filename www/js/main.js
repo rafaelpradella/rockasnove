@@ -52,15 +52,6 @@ rockApp.controller('appController', function($scope, $resource){
 
 	});
 
-  	$('.reminder').on('click', function(){
-  		$('.email-input').css("visibility","visible").css("opacity","1");
-  	});
-
-
-  	$('.email-input-send').on('click', function(){
-  		$('.email-input').css("visibility","hidden").css("opacity","0");
-  	});
-
 });
 
 
