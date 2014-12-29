@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="no-js" data-ng-app="rockApp">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+        <link rel="stylesheet" href="css/app.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-resource.min.js"></script>
+    </head>
+    <body data-ng-controller="appController">
+        <div class="app-wrapper" >
+            <header class="tbar">
+                <img src="img/logo.svg" class="tbar-logo tbar-icon" alt="logo" />
+                <span class="action-icons">
+                    <img src="img/cast-icon.svg" class="tbar-cast tbar-icon" alt="ícone do Chromecast" />
+                    <img src="img/calendar-icon.svg" class="tbar-cal tbar-icon" alt="Lista de Episódios" />
+                </span>
+            </header>
+            <nav class="roll-menu">
+                <div class="roll-menu-container">
+                    <a href="#/home" class="hometab" data-ng-click="tab=1" data-ng-class="{'active-tab' : tab==1}">Home</a>
+                    <a href="#/programa"class="programatab" data-ng-click="tab=2" data-ng-class="{'active-tab' : tab==2}">Programa</a> 
+                    <a href="#/tema" class="tematab" data-ng-click="tab=3" data-ng-class="{'active-tab' : tab==3}">Hard Rock</a>
+                    <a href="#/midia"class="midiatab" data-ng-click="tab=4" data-ng-class="{'active-tab' : tab==4}">Midia</a> 
+                    <a href="#/banda" class="bandatab" data-ng-click="tab=5" data-ng-class="{'active-tab' : tab==5}">Banda da Semana</a> 
+                </div>
+            </nav>
+            <article class="viewBox">
+                <div ng-view>
+                </div>
+            </article>  
+            
+        <!-- Modal and content boxes -->
+
+ 
+                        <aside class="agenda">
+                <ul>
+                    <li class="tema-atual tema" data-ng-repeat="tema in temas | filter:{status:'atual'}"> {{tema.sub}} </li>
+                    <li class="tema" data-ng-repeat="tema in temas | filter:{status:'proximo'}"> {{tema.sub}} <a class="reminder">Avise-me</a></li>
+                </ul>
+            </aside>
+            <div class="fullscreen">
+                <img class="fullscreen-close" src="img/close.svg" />
+                <video width="100%" controls>
+                  <source class="fullscreen-video-src" src="" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="email-input">
+                <h1>Seja avisado</h1>
+                <p> Cadastre seu email para ser avisado duas horas antes do programa começar </p>
+                <form action="demo_form.asp">
+                    <input type="text" name="fname"><br>
+                </form>
+                <span class='email-input-send'> Avisar </span>
+            </div>  
+        </div>
+
+        <!-- INLINED VIEWS -->
+
+        <script type="text/ng-template" id="home.html">
+            <section class="video-wall">
+            <h1 data-ng-repeat="tema in temas | filter:{status:'atual'}"> Hits do {{tema.sub}}</h1>
+            <img data-videoid="top01" class="wall-main videoTrigger" src="img/queen.jpg" alt="Queen - Bohemian Rhapsody" />
+            <img data-videoid="top01" class="wall-sec videoTrigger" src="img/acdc.jpg" alt="AC/DC - Back in Black" />
+            <img data-videoid="top01" class="wall-sec videoTrigger" src="img/guns.jpg" alt="Guns'n Roses - November Rains" />
+            </section>
+
+            <section class="banda-wall">
+            <h1 data-ng-repeat="tema in temas"> {{tema.banda}} </h1>
+            <a href="#/banda" data-ng-click="tab=5">
+            <img class="hero" src="img/jbox-hero.jpg" alt="foto da banda" />
+            </a>
+            </section>
+        </script>
+
+        <script type="text/ng-template" id="tema.html">
+            <section class="social-hash">
+                <a class="share-button" href="http://twitter.com/intent/tweet?text=%20%23hardrock9&amp;via=rockasnove">
+    Tweetar com #hardrock9
+                </a>
+            </section>
+            <h1 data-ng-repeat="tema in temas | filter:{status:'atual'}"> Timeline do {{tema.sub}}</h1>
+            <div class="year-block">
+                <h2>1962</h2> 
+                    <span class="line-band"> The Rolling Stones </span>
+                    <span class="line-band"> The Yardbirds </span> 
+            </div>
+            <div class="year-block">
+                <h2>1964</h2> 
+                    <span class="line-band"> The Who </span>
+                    <span class="line-band"> The Kinks </span> 
+            </div>
+            <div class="year-block">
+                <h2>1968</h2> 
+                    <span class="line-band"> Jimmy Hendrix </span>
+                    <span class="line-band"> Deep Purple </span>
+                    <span class="line-band"> Led Zeppelin </span>  
+            </div>
+            <div class="year-block">
+                <h2>1970</h2> 
+                    <span class="line-band"> Aerosmith </span>
+                    <span class="line-band"> Queen </span> 
+                    <span class="line-band"> Montrose </span> 
+            </div>
+            <div class="year-block">
+                <h2>1971</h2> 
+                    <span class="line-band"> Alice Cooper </span> 
+            </div>
+            <div class="year-block">
+                <h2>1973</h2> 
+                    <span class="line-band"> AC/DC </span>
+                    <span class="line-band"> Bad Company </span> 
+            </div>
+            <div class="year-block">
+                <h2>1974</h2> 
+                    <span class="line-band"> Van Halen </span>
+                    <span class="line-band"> KISS </span> 
+            </div>
+            <div class="year-block">
+                <h2>80s</h2> 
+                    <span class="line-band"> Soundgarden </span>
+                    <span class="line-band"> Living Color</span> 
+                    <span class="line-band"> Guns n'Roses</span> 
+            </div>
+            <div class="year-block">
+                <h2>90s</h2> 
+                    <span class="line-band"> Pearl Jam </span>
+                    <span class="line-band"> White Stripes </span> 
+            </div>
+
+        </script>
+
+        <script type="text/ng-template" id="banda.html">
+            <section class="banda-wall">
+            <h1 data-ng-repeat="tema in temas"> {{tema.banda}} </h1>
+            <img class="hero" src="img/jbox-cut-hero.jpg" alt="foto da banda" />
+            <p> A banda entrevistada do Rock às Nove dessa semana foi a paulistana Johnnybox. Criada em 2011, a banda rapidamente se consolidou no cenário dos bares de rock, tocando em diversas casas de shows em São Paulo, principalmente no Manifesto Rock Bar. Esse ano, a banda de <strong>Tato Ferrari</strong> (Vocal) <strong>Rafael Ogrão</strong> (Baixo) <strong>Caio Al-Behy</strong> (Bateria) <strong>Gustavo Goiaba</strong> (Guitarra) <strong>Nicholas Zanelato</strong> (Guitarra) lançou o seu primeiro EP: "Jerry's Mind", com a já característica mistura de Hard Rock, Funk Rock e Rock n'Roll.</p>
+                        <div class="spotify-button-container">
+                <span class="spotify-button"> Johnnybox no Spotify</span>
+            </div>
+            </section> 
+            <div class="social-media">
+            <img class="tablet-only" href="img/logo.png" />
+            <span class= "social-media-title"> Acompanhe Johnnybox: </span>
+            <div class="social-media-container"> 
+                <a href="https://www.facebook.com/bandajohnnybox">
+                <img class="social-media-icon tbar-icon" width="80" height="80" src="img/facebook-icon.svg" />
+                </a>
+                <a href="http://open.spotify.com/artist/3kdkAKk9iy5MhoOvc9Cq4G">
+                <img class="social-media-icon" width="80" height="80" src="img/spotify-icon.svg" />
+                </a>
+                <a href="http://twitter.com/bandajohnnybox">
+                <img class="social-media-icon" width="80" height="80" src="img/twitter-icon.svg" />
+                </a>
+            </div>
+        </script>
+
+        <script type="text/ng-template" id="midia.html">
+            <a href="http://open.spotify.com/user/spotify/playlist/6brdrOKuFPmcIlf3jwgV1n" class="spotify">
+            <h1 class="spotify-title"> Playlist da Semana </h1>
+            <img class="spotify-cover" src="img/spotify-hardrock.jpg" />
+            <span class="spotify-playlist"> 80s HARD ROCK <span class="spotify-artists">Com músicas de Bon Jovi, Aerosmith, Guns'n Roses, Scorpions, Deep Purple, KISS e +30 músicas </span></span> 
+            <div class="spotify-button-container">
+            <span class="spotify-button"> Assine o Spotify </span>
+            </div>   
+            </a>
+            <section class="playlist">
+            <h1 class="playlist-title"> Vídeos da Semana </h1>
+            <div data-videoid="top01" class="videoTrigger playlist-item">
+            <img class="playlist-item-cover" src="img/top01.jpg" />
+            <span class="playlist-item-name">Bohemian Rhapsody
+            <span class="playlist-item-artist">Queen</span>
+            </span>
+            </div>
+            <div data-videoid="top01" class="videoTrigger playlist-item">
+            <div class="playlist-item-content">
+            <img class="playlist-item-cover" src="img/top02.jpg" />
+            <span class="playlist-item-name">November Rain
+            <span class="playlist-item-artist">Guns n' Roses</span>
+            </span>
+            </div>
+            </div>
+            <div data-videoid="top01" class="videoTrigger playlist-item">
+            <img class="playlist-item-cover" src="img/top03.jpg" />
+            <span class="playlist-item-name">Back in Black
+            <span class="playlist-item-artist">AC/DC</span>
+            </span>
+            </div>
+            <div data-videoid="top01" class="videoTrigger playlist-item">
+            <img class="playlist-item-cover" src="img/001.jpg" />
+            <span class="playlist-item-name">Rock You Like a Hurricane
+            <span class="playlist-item-artist">Scorpions</span>
+            </span>
+            </div>
+            <div data-videoid="top01" class="videoTrigger playlist-item">
+            <div class="playlist-item-content">
+            <img class="playlist-item-cover" src="img/002.jpg" />
+            <span class="playlist-item-name">Start Me Up
+            <span class="playlist-item-artist">The Rolling Stones</span>
+            </span>
+            </div>
+            </div>
+            <div data-videoid="top01" class="videoTrigger playlist-item">
+            <img class="playlist-item-cover" src="img/003.jpg" />
+            <span class="playlist-item-name">Jeremy
+            <span class="playlist-item-artist">Pearl Jam</span>
+            </span>
+            </div>
+            <div data-videoid="top01" class="videoTrigger playlist-item">
+            <img class="playlist-item-cover" src="img/004.jpg" />
+            <span class="playlist-item-name">Seven Nation Army
+            <span class="playlist-item-artist">White Stripes</span>
+            </span>
+            </div>
+            <div data-videoid="top01" class="videoTrigger playlist-item">
+            <img class="playlist-item-cover" src="img/005.jpg" />
+            <span class="playlist-item-name">Poison
+            <span class="playlist-item-artist">Alice Cooper</span>
+            </span>
+            </div>
+            </section>
+        </script>
+        <script type="text/ng-template" id="programa.html">
+            <img src="img/rock-hero.jpg" class="hero" />
+            <h1 class="header-programa"> O Rock às Nove </h1>
+            <p> O Rock às Nove é um programa do canal BIZ dedicado ao gênero rock. A cada semana, abordamos um subgênero do rock diferente, mas também falamos de rock em geral, com muita interação do pessoal das ruas e de nossos seguidores nas redes sociais.</p>
+
+            <p><strong> Rock às Nove, todo sábado no Canal BIZ, às 21h (ou às nove, como gostamos de falar). </strong></p> 
+
+            <h1 class="header-programa"> Nosso Apresentador </h1>
+            <img src="img/cabrino-hero.jpg" class="hero" />
+            <p> Felipe Cabrino tem 21 anos, é formado em Jornalismo e é colecionador de vinis por hobby, o que o fez seguir como colunista em publicações sobre o gênero. Hoje, Felipe comanda o Rock às Nove, colocando um pouco mais de rock nas noites da tv.  </p>
+
+            <div class="social-media">
+            <img class="tablet-only" href="img/logo.png" />
+            <span class= "social-media-title"> Nos acompanhe: </span>
+            <div class="social-media-container"> 
+                <a href="https://www.facebook.com/RockAsNove">
+	            <img class="social-media-icon tbar-icon" width="80" height="80" src="img/facebook-icon.svg" />
+                </a>
+                <a href="http://open.spotify.com/user/rockasnove">
+	            <img class="social-media-icon" width="80" height="80" src="img/spotify-icon.svg" />
+                </a>
+                <a href="https://twitter.com/rockasnove">
+	            <img class="social-media-icon" width="80" height="80" src="img/twitter-icon.svg" />
+                </a>
+	        </div>
+            </div>
+        </script>
+        <!-- THE END --> 
+        <script src="js/vendor/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="js/Calendar.js"></script>
+        <script src="js/helper.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
