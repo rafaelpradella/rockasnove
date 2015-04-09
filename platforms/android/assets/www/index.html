@@ -8,32 +8,22 @@
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
         <meta http-equiv="cleartype" content="on">
-
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
-        <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
-        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
         <link rel="stylesheet" href="css/app.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-resource.min.js"></script>
     </head>
     <body data-ng-controller="appController">
         <div class="app-wrapper" >
             <header class="tbar">
-                <img src="img/logo.svg" class="tbar-logo tbar-icon" alt="logo" />
+                <img src="img/logo.svgz" class="tbar-logo tbar-icon" alt="logo" />
                 <span class="action-icons">
-                    <img src="img/cast-icon.svg" class="tbar-cast tbar-icon" alt="ícone do Chromecast" />
-                    <img src="img/calendar-icon.svg" class="tbar-cal tbar-icon" alt="Lista de Episódios" />
+                    <img src="img/cast-icon.svgz" class="tbar-cast tbar-icon" alt="ícone do Chromecast" />
+                    <img src="img/calendar-icon.svgz" class="tbar-cal tbar-icon" alt="Lista de Episódios" />
                 </span>
             </header>
             <nav class="roll-menu">
                 <div class="roll-menu-container">
                     <a href="#/home" class="hometab" data-ng-click="tab=1" data-ng-class="{'active-tab' : tab==1}">Home</a>
                     <a href="#/programa"class="programatab" data-ng-click="tab=2" data-ng-class="{'active-tab' : tab==2}">Programa</a> 
-                    <a href="#/tema" class="tematab" data-ng-click="tab=3" data-ng-class="{'active-tab' : tab==3}">Hard Rock</a>
+                    <a href="#/tema" class="tematab" data-ng-click="tab=3" data-ng-class="{'active-tab' : tab==3}">Tema da Semana</a>
                     <a href="#/midia"class="midiatab" data-ng-click="tab=4" data-ng-class="{'active-tab' : tab==4}">Midia</a> 
                     <a href="#/banda" class="bandatab" data-ng-click="tab=5" data-ng-class="{'active-tab' : tab==5}">Banda da Semana</a> 
                 </div>
@@ -46,28 +36,18 @@
         <!-- Modal and content boxes -->
 
  
-                        <aside class="agenda">
+            <aside class="agenda">
                 <ul>
                     <li class="tema-atual tema" data-ng-repeat="tema in temas | filter:{status:'atual'}"> {{tema.sub}} </li>
                     <li class="tema" data-ng-repeat="tema in temas | filter:{status:'proximo'}"> {{tema.sub}} <a class="reminder">Avise-me</a></li>
                 </ul>
             </aside>
             <div class="fullscreen">
-                <img class="fullscreen-close" src="img/close.svg" />
+                <img class="fullscreen-close" src="img/close.svgz" />
                 <video width="100%" controls>
                   <source class="fullscreen-video-src" src="" type="video/mp4">
                 </video>
             </div>
-
-            <div class="email-input">
-                <h1>Seja avisado</h1>
-                <p> Cadastre seu email para ser avisado duas horas antes do programa começar </p>
-                <form action="demo_form.asp">
-                    <input type="text" name="fname"><br>
-                </form>
-                <span class='email-input-send'> Avisar </span>
-            </div>  
-        </div>
 
         <!-- INLINED VIEWS -->
 
@@ -89,7 +69,7 @@
 
         <script type="text/ng-template" id="tema.html">
             <section class="social-hash">
-                <a class="share-button" href="http://twitter.com/intent/tweet?text=%20%23hardrock9&amp;via=rockasnove">
+                <a class="share-button" target="_system" href="http://twitter.com/intent/tweet?text=%20%23hardrock9&amp;via=rockasnove">
     Tweetar com #hardrock9
                 </a>
             </section>
@@ -157,20 +137,20 @@
             <img class="tablet-only" href="img/logo.png" />
             <span class= "social-media-title"> Acompanhe Johnnybox: </span>
             <div class="social-media-container"> 
-                <a href="https://www.facebook.com/bandajohnnybox">
-                <img class="social-media-icon tbar-icon" width="80" height="80" src="img/facebook-icon.svg" />
+                <a target="_system" href="https://www.facebook.com/bandajohnnybox">
+                <img class="social-media-icon tbar-icon" width="80" height="80" src="img/facebook-icon.svgz" />
                 </a>
-                <a href="http://open.spotify.com/artist/3kdkAKk9iy5MhoOvc9Cq4G">
-                <img class="social-media-icon" width="80" height="80" src="img/spotify-icon.svg" />
+                <a target="_system" href="http://open.spotify.com/artist/3kdkAKk9iy5MhoOvc9Cq4G">
+                <img class="social-media-icon" width="80" height="80" src="img/spotify-icon.svgz" />
                 </a>
-                <a href="http://twitter.com/bandajohnnybox">
-                <img class="social-media-icon" width="80" height="80" src="img/twitter-icon.svg" />
+                <a target="_system" href="http://twitter.com/bandajohnnybox">
+                <img class="social-media-icon" width="80" height="80" src="img/twitter-icon.svgz" />
                 </a>
             </div>
         </script>
 
         <script type="text/ng-template" id="midia.html">
-            <a href="http://open.spotify.com/user/spotify/playlist/6brdrOKuFPmcIlf3jwgV1n" class="spotify">
+            <a target="_system" href="http://open.spotify.com/user/spotify/playlist/6brdrOKuFPmcIlf3jwgV1n" class="spotify">
             <h1 class="spotify-title"> Playlist da Semana </h1>
             <img class="spotify-cover" src="img/spotify-hardrock.jpg" />
             <span class="spotify-playlist"> 80s HARD ROCK <span class="spotify-artists">Com músicas de Bon Jovi, Aerosmith, Guns'n Roses, Scorpions, Deep Purple, KISS e +30 músicas </span></span> 
@@ -249,21 +229,23 @@
             <img class="tablet-only" href="img/logo.png" />
             <span class= "social-media-title"> Nos acompanhe: </span>
             <div class="social-media-container"> 
-                <a href="https://www.facebook.com/RockAsNove">
-	            <img class="social-media-icon tbar-icon" width="80" height="80" src="img/facebook-icon.svg" />
+                <a target="_system" href="https://www.facebook.com/RockAsNove">
+	            <img class="social-media-icon tbar-icon" width="80" height="80" src="img/facebook-icon.svgz" />
                 </a>
-                <a href="http://open.spotify.com/user/rockasnove">
-	            <img class="social-media-icon" width="80" height="80" src="img/spotify-icon.svg" />
+                <a target="_system" href="http://open.spotify.com/user/rockasnove">
+	            <img class="social-media-icon" width="80" height="80" src="img/spotify-icon.svgz" />
                 </a>
-                <a href="https://twitter.com/rockasnove">
-	            <img class="social-media-icon" width="80" height="80" src="img/twitter-icon.svg" />
+                <a target="_system" href="https://twitter.com/rockasnove">
+	            <img class="social-media-icon" width="80" height="80" src="img/twitter-icon.svgz" />
                 </a>
 	        </div>
             </div>
         </script>
         <!-- THE END --> 
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-resource.min.js"></script>
         <script src="js/vendor/jquery-2.1.0.min.js"></script>
-        <script type="text/javascript" src="js/Calendar.js"></script>
         <script src="js/helper.js"></script>
         <script src="js/main.js"></script>
     </body>

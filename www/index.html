@@ -10,7 +10,7 @@
         <meta http-equiv="cleartype" content="on">
         <link rel="stylesheet" href="css/app.css">
     </head>
-    <body data-ng-controller="appController">
+    <body data-ng-controller="appController" ontouchstart="" onmouseover="">
         <div class="app-wrapper" >
             <header class="tbar">
                 <img src="img/logo.svgz" class="tbar-logo tbar-icon" alt="logo" />
@@ -69,7 +69,7 @@
 
         <script type="text/ng-template" id="tema.html">
             <section class="social-hash">
-                <a class="share-button" href="http://twitter.com/intent/tweet?text=%20%23hardrock9&amp;via=rockasnove">
+                <a class="share-button" target="_system" href="http://twitter.com/intent/tweet?text=%20%23hardrock9&amp;via=rockasnove">
     Tweetar com #hardrock9
                 </a>
             </section>
@@ -137,20 +137,20 @@
             <img class="tablet-only" href="img/logo.png" />
             <span class= "social-media-title"> Acompanhe Johnnybox: </span>
             <div class="social-media-container"> 
-                <a href="https://www.facebook.com/bandajohnnybox">
+                <a target="_system" href="https://www.facebook.com/bandajohnnybox">
                 <img class="social-media-icon tbar-icon" width="80" height="80" src="img/facebook-icon.svgz" />
                 </a>
-                <a href="http://open.spotify.com/artist/3kdkAKk9iy5MhoOvc9Cq4G">
+                <a target="_system" href="http://open.spotify.com/artist/3kdkAKk9iy5MhoOvc9Cq4G">
                 <img class="social-media-icon" width="80" height="80" src="img/spotify-icon.svgz" />
                 </a>
-                <a href="http://twitter.com/bandajohnnybox">
+                <a target="_system" href="http://twitter.com/bandajohnnybox">
                 <img class="social-media-icon" width="80" height="80" src="img/twitter-icon.svgz" />
                 </a>
             </div>
         </script>
 
         <script type="text/ng-template" id="midia.html">
-            <a href="http://open.spotify.com/user/spotify/playlist/6brdrOKuFPmcIlf3jwgV1n" class="spotify">
+            <a target="_system" href="http://open.spotify.com/user/spotify/playlist/6brdrOKuFPmcIlf3jwgV1n" class="spotify">
             <h1 class="spotify-title"> Playlist da Semana </h1>
             <img class="spotify-cover" src="img/spotify-hardrock.jpg" />
             <span class="spotify-playlist"> 80s HARD ROCK <span class="spotify-artists">Com músicas de Bon Jovi, Aerosmith, Guns'n Roses, Scorpions, Deep Purple, KISS e +30 músicas </span></span> 
@@ -229,13 +229,13 @@
             <img class="tablet-only" href="img/logo.png" />
             <span class= "social-media-title"> Nos acompanhe: </span>
             <div class="social-media-container"> 
-                <a href="https://www.facebook.com/RockAsNove">
+                <a target="_system" href="https://www.facebook.com/RockAsNove">
 	            <img class="social-media-icon tbar-icon" width="80" height="80" src="img/facebook-icon.svgz" />
                 </a>
-                <a href="http://open.spotify.com/user/rockasnove">
+                <a target="_system" href="http://open.spotify.com/user/rockasnove">
 	            <img class="social-media-icon" width="80" height="80" src="img/spotify-icon.svgz" />
                 </a>
-                <a href="https://twitter.com/rockasnove">
+                <a target="_system" href="https://twitter.com/rockasnove">
 	            <img class="social-media-icon" width="80" height="80" src="img/twitter-icon.svgz" />
                 </a>
 	        </div>
@@ -246,7 +246,6 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-resource.min.js"></script>
         <script src="js/vendor/jquery-2.1.0.min.js"></script>
-        <script type="text/javascript" src="js/Calendar.js"></script>
         <script src="js/helper.js"></script>
         <script src="js/main.js"></script>
     </body>
